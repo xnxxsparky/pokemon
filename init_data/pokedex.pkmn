@@ -1,0 +1,52 @@
+typedef struct s_pokemon
+{
+	char				*name;
+	char				*nickname;
+	t_stats				base;
+	t_stats				iv;
+	t_stats				ev;
+	t_stats				total;
+	//abylity ?
+	//nature ?
+	e_primary_status	p_status;
+	e_secondary_status	s_status;
+	size_t				xp;
+	size_t				xp_next_lvl;
+	size_t				curr_hp;
+	size_t				lvl;
+	//front and back skin
+	e_types				types[2];
+	t_move				moves[4];
+	size_t				happy;
+	t_item				held_item;
+	size_t				t_id;
+	//evolution ?
+	t_affect			affects[3];
+	size_t				index;
+}	t_pokemon;
+
+Un truc du genre :
+	{
+		Pikachu
+		NULL
+		[
+			35
+			55
+			40
+			50
+			50
+			90
+		]
+		NULL
+		NULL
+		NULL
+		//
+		//
+		NULL
+		NULL
+		NULL
+		NULL
+		NULL
+		NULL
+		ELECTRIK
+	}

@@ -1,0 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.h.old                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/04 01:02:45 by bcausseq          #+#    #+#             */
+/*   Updated: 2026/02/03 22:54:12 by bcausseq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GAME_H
+# define GAME_H
+
+# include <stdbool.h>
+
+typedef struct s_type
+{
+	char	*name;
+	char	**resistances;
+	char	**weaknesses;
+}	t_type;
+
+typedef struct s_attack
+{
+	t_type	type;
+	char	*name;
+	char	*effects;
+	int		power;
+	int		precision;
+	int		power_point;
+	int		category;
+}	t_attack;
+
+typedef struct s_statistics
+{
+	char	*nature_name;
+	int		nature_effects[2];
+	int		hp;
+	int		phy_attack;
+	int		phy_defense;
+	int		spe_attack;
+	int		spe_defense;
+	int		speed;
+	int		xp;
+}	t_statistics;
+
+typedef struct s_pokedex
+{
+	int	total;
+	int	amount_caught;
+	int	amount_seen;
+}	t_pokedex; /*to complete*/
+
+typedef struct s_pokemon
+{
+	int				pokedex_number;
+	char			*pokedex_desc;
+	char			*pokemon_desc;
+	char			*name;
+	t_type			type[2];
+	t_attack		moves[4];
+	t_statistics	stats;
+	int				height;
+	int				weight;
+	int				base_friendship;
+	char			*held_item;
+}	t_pokemon;
+
+typedef struct s_bag
+{
+	char			*name;
+	char			*effect;
+	int				quantity;
+	struct	s_bag	*next;
+}	t_bag;
+
+typedef struct s_trainer
+{
+	t_bag		*bag[5];
+	char		*name;
+	t_pokemon	team[6];
+	t_pokedex	pokedex;
+	int			badges;
+}	t_trainer;
+
+typedef struct s_pnj
+{
+	char	*dialog;
+}	t_pnj;
+
+#endif
