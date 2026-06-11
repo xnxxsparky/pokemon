@@ -6,16 +6,17 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 22:53:59 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/02/03 23:45:44 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 02:10:13 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-#include <cstddef>
-# include <stdbool.h>
-# include <stdlib.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include "../raylib/src/raylib.h"
+#include "../libmenu/includes/menu.h"
 
 typedef enum e_secondary_status
 {
@@ -68,7 +69,7 @@ typedef enum e_types
 
 typedef struct s_affect
 {
-	e_types	*affect;
+	t_types	*affect;
 	size_t	len;
 }	t_affect;
 
@@ -97,7 +98,7 @@ typedef struct s_pokedex
 {
 	char	*name;
 	size_t	index;
-	e_types	types[2];
+	t_types	types[2];
 	char	*desc;
 	//cry
 	//front skin
@@ -108,7 +109,7 @@ typedef struct s_item
 {
 	char	*name;
 	size_t	stock;
-	e_item_types	type;
+	t_item_types	type;
 	//effect
 }	t_item;
 
@@ -122,14 +123,14 @@ typedef struct s_pokemon
 	t_stats				total;
 	//abylity ?
 	//nature ?
-	e_primary_status	p_status;
-	e_secondary_status	s_status;
+	t_primary_status	p_status;
+	t_secondary_status	s_status;
 	size_t				xp;
 	size_t				xp_next_lvl;
 	size_t				curr_hp;
 	size_t				lvl;
 	//front and back skin
-	e_types				types[2];
+	t_types				types[2];
 	t_move				moves[4];
 	size_t				happy;
 	t_item				held_item;
@@ -153,7 +154,7 @@ typedef struct s_bag_page
 typedef struct s_bag
 {
 	t_bag_page		slots[7];
-	e_item_types	last_open;
+	t_item_types	last_open;
 }	t_bag;
 
 typedef struct s_trainer
