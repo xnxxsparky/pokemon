@@ -6,7 +6,7 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 21:17:06 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/06/11 22:01:01 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 22:23:12 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,21 @@ options_mod(void *game)
 }
 
 void
+back_mod(void *game)
+{
+	t_game	*ctx = (t_game *)game;
+
+	ctx->state = GAME;
+}
+
+void
+free_menus(t_game *game)
+{
+	if (game->menu_game.but)
+		free(game->menu_game.but);
+}
+
+void
 init_menus(t_game *game)
 {
 	//todo : change 0 0 by coords of the menu, and the func mod
@@ -83,4 +98,25 @@ init_menus(t_game *game)
 		ft_fprintf(2, "Malloc failled for the game menu\n"); return ;
 
 	ft_memcpy(game->menu_game.but, but_text, sizeof(t_buttons) * GAME_MENU_NBR);
+}
+
+void
+menu_mod_handler(t_game *game)
+{
+	if (IsKeyPressed(game->joystick.w.key))
+	{
+		game->menu_game.index_but--;
+		if (game->menu_game.index_but < 0)
+			game->menu_game.index_but = GAME_MENU_NBR - 1;
+	}
+	else if (IsKeyPressed(game->joystick.s.key))
+	{
+		game->menu_game.index_but++;
+		if (game->menu_game.index_but > GAME_MENU_NBR)
+			game->menu_game.index_but = 0;
+	}
+	else if (IsKeyPressed(game->joystick.enter.key))
+		game->menu_game.but[game->menu_game.index_but].action(game);
+	else if (IsKeyPressed(game->joystick.ret.key))
+		back_mod(game);
 }

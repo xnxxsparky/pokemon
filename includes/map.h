@@ -6,7 +6,7 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 00:10:56 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/06/11 02:14:02 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 22:14:00 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MAP_H
@@ -42,6 +42,9 @@ typedef struct	s_hooktable
 	t_hooks	a;
 	t_hooks	s;
 	t_hooks	d;
+	t_hooks	enter;
+	t_hooks	ret;
+	t_hooks	full;
 }	t_hooktable;
 
 #endif

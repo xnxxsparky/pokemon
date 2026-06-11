@@ -6,7 +6,7 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 22:53:59 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/06/11 21:41:41 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 22:24:30 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ typedef struct	s_game
 	t_game_states	state;
 	t_menu			menu_game;
 	t_menu			opts_game;
+	t_hooktable		joystick;
 }	t_game;
 
 t_game_states
@@ -203,4 +204,17 @@ fill_context(t_game *game);
 
 void
 apply_hooks_game(t_game *game);
+
+void
+init_hooks(t_hooktable *hook);
+
+void
+menu_mod_handler(t_game *game);
+
+void
+free_menus(t_game *game);
+
+void
+init_menus(t_game *game);
+
 #endif

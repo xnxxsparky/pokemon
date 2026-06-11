@@ -6,11 +6,11 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 01:05:58 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/06/11 02:14:19 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 22:21:33 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/context.h"
+#include "includes/game.h"
 #include "includes/map.h"
 #include "raylib/src/raylib.h"
 
@@ -67,7 +67,7 @@ hooks_down_game()
 }
 
 void
-init_hooks()
+init_hooks(t_hooktable *hook)
 {
 	t_hooktable	hooks = {0};
 
@@ -75,4 +75,8 @@ init_hooks()
 	hooks.a.key = KEY_A;
 	hooks.s.key = KEY_S;
 	hooks.d.key = KEY_D;
+	hooks.enter.key = KEY_ENTER;
+	hooks.ret.key = KEY_B;
+	hooks.full.key = KEY_F;
+	*hook = hooks;
 }

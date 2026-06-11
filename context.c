@@ -6,12 +6,11 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 02:01:19 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/06/11 02:10:41 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 22:15:20 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libmenu/includes/menu.h"
-#include "includes/context.h"
+#include "includes/game.h"
 
 t_game_states
 get_game_state(t_game *game)
