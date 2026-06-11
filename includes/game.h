@@ -6,7 +6,7 @@
 /*   By: bcausseq <bcausseq@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 22:53:59 by bcausseq          #+#    #+#             */
-/*   Updated: 2026/06/11 02:10:13 by bcausseq         ###   ########.fr       */
+/*   Updated: 2026/06/11 21:41:41 by bcausseq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <stdlib.h>
 #include "../raylib/src/raylib.h"
 #include "../libmenu/includes/menu.h"
+#include "../libft_hidden/includes/libft.h"
+#include "map.h"
+#include "window.h"
 
 typedef enum e_secondary_status
 {
@@ -167,4 +170,37 @@ typedef struct s_trainer
 	t_id_card	trainer_card;
 }	t_trainer;
 
+typedef enum	e_game_states
+{
+	MAIN_MENU,
+	LOAD_SAVE,
+	GAME,
+	GAME_MENU,
+	GAME_OPTIONS,
+	BAG,
+	POKEMON_MENU,
+	BADGES,
+	POKEDEX,
+	SAVE,
+	OPTIONS,
+	CHAT_NPC,
+	STORE,
+	UNKNOWN
+}	t_game_states;
+
+typedef struct	s_game
+{
+	t_game_states	state;
+	t_menu			menu_game;
+	t_menu			opts_game;
+}	t_game;
+
+t_game_states
+get_game_state(t_game *game);
+
+void
+fill_context(t_game *game);
+
+void
+apply_hooks_game(t_game *game);
 #endif
